@@ -4,9 +4,11 @@ __author__ = 'IENAC15 - groupe 25'
 
 
 import sys
-from PyQt5.QtWidgets import QWidget, QDesktopWidget, QGraphicsEllipseItem
-from PyQt5.QtGui import QPainter, QColor, QPen, QPolygon
+sys.path.insert(0, sys.path[0] + "/data/")
+from PyQt5.QtWidgets import QWidget, QDesktopWidget, QGraphicsEllipseItem, QMainWindow, QGraphicsScene,QGraphicsView
+from PyQt5.QtGui import QPainter, QColor, QPen, QPolygon, QIcon
 from PyQt5.QtCore import Qt, QPoint
+from PyQt5.QtSvg import *
 
 N = 9 # 9 intersections  donc 8 cases
 RATIO = 0.9 # ratio d'occupation de la fenêtre vis à vis de l'écran
@@ -27,6 +29,7 @@ class Plateau(QWidget):
         self.center()
         self.setWindowTitle('Le chemin des chefs')
         self.setStyleSheet("background-color:white;")
+        self.setWindowIcon(QIcon(sys.path[0] + 'general.png'))
         self.show()
 
     def center(self):
